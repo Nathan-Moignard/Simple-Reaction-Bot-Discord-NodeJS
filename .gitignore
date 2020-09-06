@@ -1,3 +1,6 @@
+# Loading API_KEYS
+keys.json
+
 # Logs
 logs
 *.log
