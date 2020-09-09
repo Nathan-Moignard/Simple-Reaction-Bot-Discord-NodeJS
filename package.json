@@ -1,0 +1,7 @@
+{
+	"depedencies": {
+		"discord.js",
+		"jquery",
+		"node-fetch"
+	}
+}
