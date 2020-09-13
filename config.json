@@ -1,3 +1,5 @@
 {
-	"prefix": "$"
+	"gif_prefix": "$ ",
+	"sound_prefix": "$sound ",
+	"yt_prefix": "$yt "
 }
