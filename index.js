@@ -61,7 +61,7 @@ function playSound(message) {
         }})
       .catch((err => {
         process.exit();
-      });
+      }));
 }
 
 Client.on("message", (message) => {
