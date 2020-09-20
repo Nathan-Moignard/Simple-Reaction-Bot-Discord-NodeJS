@@ -29,9 +29,8 @@ const Client = new Discord.Client();
 
 function sendGiphy(message) {
     fetch("http://api.giphy.com/v1/gifs/search?q=" + message.content.substring(config.gif_prefix.length) + "&limit=1&api_key=" + keys.API_KEY_GIPHY)
-    .then(res => res.json())
+    .then((res) => res.json())
     .then((json) => {
-        console.log("Gif asked: " + message.content.substring(config.gif_prefix.length));
         message.channel.send(json.data[0].url);
     });
 message.delete();
@@ -41,7 +40,7 @@ async function play(voiceChannel) {
     const connection = await voiceChannel.join();
     const dispatcher = await connection.play(fs.createReadStream("./temp.wav"));
 
-    dispatcher.on('finish', () => {
+    dispatcher.on("finish", () => {
         synthesizeParams.text = "";
         connection.disconnect();
     });
@@ -56,16 +55,16 @@ function playSound(message) {
         return textToSpeech.repairWavHeaderStream(response.result);
       })
     .then((buffer) => {
-        fs.writeFileSync('temp.wav', buffer)
+        fs.writeFileSync("temp.wav", buffer)
         if (message.member.voice.channel) {
             play(message.member.voice.channel);
         }})
-      .catch(err => {
+      .catch((err => {
         process.exit();
       });
 }
 
-Client.on("message", message => {
+Client.on("message", (message) => {
     if (message.content.startsWith(config.sound_prefix)) {
         playSound(message);
     } else if (message.content.startsWith(config.yt_prefix)) {
