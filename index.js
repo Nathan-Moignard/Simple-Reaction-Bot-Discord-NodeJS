@@ -55,11 +55,11 @@ function playSound(message) {
         return textToSpeech.repairWavHeaderStream(response.result);
       })
     .then((buffer) => {
-        fs.writeFileSync("temp.wav", buffer)
+        fs.writeFileSync("temp.wav", buffer);
         if (message.member.voice.channel) {
             play(message.member.voice.channel);
         }})
-      .catch((err => {
+      .catch(((err) => {
         process.exit();
       }));
 }
@@ -67,8 +67,6 @@ function playSound(message) {
 Client.on("message", (message) => {
     if (message.content.startsWith(config.sound_prefix)) {
         playSound(message);
-    } else if (message.content.startsWith(config.yt_prefix)) {
-        
     } else if (message.content.startsWith(config.gif_prefix)) {
         sendGiphy(message);
     }
