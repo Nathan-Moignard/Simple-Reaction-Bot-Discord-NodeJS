@@ -5,6 +5,6 @@
 		"ffmpeg-static": "^4.2.7",
 		"jquery": "^3.5.1",
 		"node-fetch": "^2.6.1",
-		"ibm-watson": "^5.7.0"
+		"ibm-watson": "^8.0.0"
 	}
 }
